@@ -36,6 +36,9 @@ void testCH1() {
 	assert(oneAway("pale", "ple"));
 	assert(oneAway("pales", "pale"));
 
+	// q6
+	std::cout << "Checking stringCompression..." << std::endl;
+	assert(stringCompression("aabcccccaaa") == "a2b1c5a3");
 
 }
 
@@ -147,5 +150,84 @@ bool oneAway(string s1, string s2) {
 
 //============ Q6 ==============
 string stringCompression(string s) {
+	string final;
+	char current = s[0];
+	int count = 1;
+	for (int i = 1; i < s.length(); i++) {
+		if (s[i] == current) {
+			count +=  1;
+		}
+		else{
+			final += current;
+			final += std::to_string(count);
 
+			current = s[i];
+			count = 1;
+		}
+	}
+	final += current;
+	final += std::to_string(count);
+
+	if (final.length() > s.length()) {
+		return s;
+	}
+	return final;
+	
 }
+
+//============ Q7 ==============
+// An Inplace function to rotate a N x N matrix
+// by 90 degrees in anti-clockwise direction
+
+#define N 4
+void rotateMatrix(int mat[][N])
+{
+	// Consider all squares one by one
+	for (int x = 0; x < N / 2; x++)
+	{
+		// Consider elements in group of 4 in 
+		// current square
+		for (int y = x; y < N - x - 1; y++)
+		{
+			// store current cell in temp variable
+			int temp = mat[x][y];
+
+			// move values from right to top
+			mat[x][y] = mat[y][N - 1 - x];
+
+			// move values from bottom to right
+			mat[y][N - 1 - x] = mat[N - 1 - x][N - 1 - y];
+
+			// move values from left to bottom
+			mat[N - 1 - x][N - 1 - y] = mat[N - 1 - y][x];
+
+			// assign temp to left
+			mat[N - 1 - y][x] = temp;
+		}
+	}
+}
+
+//============ Q8 ==============
+//zero matrix
+/* iterate through matrix 
+if m[i][j] == 0:
+	mat[i][0] = 0;
+	m[0][j] = 0;
+
+loop through first row and first column
+if x == 0:
+	set row = 0
+if y = 0:
+	set col = 0
+*/
+
+
+
+//============ Q9 ==============
+// string rotation
+/*
+use one call to issubstring
+1) check s1.length() == s2.length()
+2) return isSubstring(s1+s1, s2)
+*/
+

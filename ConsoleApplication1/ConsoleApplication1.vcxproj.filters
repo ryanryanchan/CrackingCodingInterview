@@ -21,6 +21,9 @@
     <ClInclude Include="CH1.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="CH2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -30,6 +33,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CH1.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CH2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
